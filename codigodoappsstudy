@@ -1,0 +1,57 @@
+function enviarEmailsPersonalizados() {
+  const ss          = SpreadsheetApp.getActiveSpreadsheet();
+  const respostas   = ss.getSheetByName("Respostas ao formulário 1");
+  const mensagens   = ss.getSheetByName("Mensagens");
+
+  const dadosRespostas = respostas.getDataRange().getValues();
+  const dadosMensagens = mensagens.getDataRange().getValues();
+
+  const cabecalho        = dadosRespostas[0];
+  const objetivoCol      = cabecalho.indexOf("Qual seu principal objetivo com os treinos?");
+  const horarioCol       = cabecalho.indexOf("Em qual turno você costuma treinar?");
+  const emailCol         = cabecalho.indexOf("E-mail");
+  const consentimentoCol = cabecalho.indexOf("Você gostaria de receber uma sugestão de treino orientado com base nas suas respostas?");
+  const statusCol        = cabecalho.indexOf("Status de envio");          // “Status de envio”
+
+  for (let i = 1; i < dadosRespostas.length; i++) {
+    const linha         = dadosRespostas[i];
+    const objetivo      = linha[objetivoCol];
+    const horario       = linha[horarioCol];
+    const email         = linha[emailCol];
+    const consentimento = linha[consentimentoCol];
+    const status        = linha[statusCol];
+    
+    Logger.log(`Linha ${i}: Email=${email} | Objetivo=${objetivo} | Horário=${horario} | Consentimento=${consentimento} | Status=${status}`);
+
+    
+    if (status !== "Enviado" && consentimento === "Sim") {
+
+     
+      let mensagemFinal = "Olá! Ainda não encontramos um treino personalizado para o seu perfil, mas em breve enviaremos uma sugestão. 😉";
+
+      
+      for (let j = 1; j < dadosMensagens.length; j++) {
+        const objetivoMsg = dadosMensagens[j][0];
+        const horarioMsg  = dadosMensagens[j][1];
+        const textoMsg    = dadosMensagens[j][2];
+
+        
+
+        if (objetivoMsg === objetivo && horarioMsg === horario) {
+          mensagemFinal = textoMsg;     
+          break;
+        }
+      }
+
+     
+      GmailApp.sendEmail(
+        email,
+        "Seu Treino Personalizado • Atitudy Fitness",
+        mensagemFinal
+      );
+
+      
+      respostas.getRange(i + 1, statusCol + 1).setValue("Enviado");
+    }
+  }
+}
