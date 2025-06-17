@@ -37,6 +37,10 @@ O objetivo principal foi entender o perfil dos alunos, seus hábitos de treino e
 ![image](https://github.com/user-attachments/assets/7984bfec-a087-465c-9403-680329e5a97f)
 ![Captura de tela 2025-06-17 005103](https://github.com/user-attachments/assets/d900f5f6-91b2-4dd4-a31f-91cdb2adbb8d)
 
+![image](https://github.com/user-attachments/assets/528cde84-0938-4899-80b2-fb1eb02bd7c3)
+
+![image](https://github.com/user-attachments/assets/72fccb8b-e3e2-4f98-9f7a-94c682d12679)
+
 ---
 
 ## 🧠 Etapas do Projeto — Big Data na Atitudy Fitness
