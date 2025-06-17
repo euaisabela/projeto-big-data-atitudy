@@ -23,7 +23,7 @@ O objetivo principal foi entender o perfil dos alunos, seus hábitos de treino e
 
 ![Captura de tela 2025-06-14 002819](https://github.com/user-attachments/assets/46a097a4-fd28-4a5e-87dc-7026dec53f4b)
 
-![image](https://github.com/user-attachments/assets/03d89f37-ab31-41f7-8325-bf0f1dfeee23)
+
 
 ![Captura de tela 2025-06-17 022109](https://github.com/user-attachments/assets/48d710f6-404e-4aa0-a83e-78298c503e1a)
 
